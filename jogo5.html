@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Interativo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options {
+            display: inline-block;
+        }
+        button {
+            font-size: 20px;
+            margin: 10px;
+            padding: 10px 20px;
+        }
+        img {
+            max-width: 100%;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="question">
+        o Mateus é um gato?
+    </div>
+    <div class="options">
+        <button id="sim">Sim</button>
+        <button id="nao">Não</button>
+    </div>
+
+    <img id="gato" src="gatinho.jpg" alt="Gatinho">
+
+    <script>
+        const simButton = document.getElementById('sim');
+        const naoButton = document.getElementById('nao');
+        const gatoImg = document.getElementById('gato');
+
+        naoButton.addEventListener('mouseover', () => {
+            const maxX = window.innerWidth - naoButton.clientWidth;
+            const maxY = window.innerHeight - naoButton.clientHeight;
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            naoButton.style.position = 'absolute';
+            naoButton.style.left = randomX + 'px';
+            naoButton.style.top = randomY + 'px';
+        });
+
+        simButton.addEventListener('click', () => {
+            gatoImg.style.display = 'block';
+            // Adicione mais ações aqui se desejar
+        });
+    </script>
+</body>
+</html>
